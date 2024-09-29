@@ -65,6 +65,9 @@ public Label idText;
 	@FXML
 	public ImageView confetti;
 	
+	@FXML
+	public Label averageText;
+	
     @FXML
     protected void switchToSecondary() throws SQLException {
     	 String etudiantId = idInput.getText().trim();
@@ -134,5 +137,6 @@ public Label idText;
        
         
         totalNotesText.setText("Notes summary : " + totalNotes + "/" + (NB_EXAMEN * 20));
+        averageText.setText("Average : " + (double)(totalNotes / NB_EXAMEN));
     }
 }

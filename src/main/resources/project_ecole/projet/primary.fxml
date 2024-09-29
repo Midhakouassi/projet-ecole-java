@@ -142,12 +142,17 @@
                   </Label>
                </children>
             </VBox>
-            <Label fx:id="totalNotesText" layoutX="14.0" layoutY="198.0" text="Notes Summary:">
+            <Label fx:id="totalNotesText" layoutX="14.0" layoutY="190.0" text="Notes Summary:">
                <font>
                   <Font name="Consolas Bold" size="14.0" />
                </font>
             </Label>
             <VBox fx:id="tableExamenBox" layoutX="10.0" layoutY="99.0" prefHeight="99.0" prefWidth="337.0" />
+            <Label fx:id="averageText" layoutX="14.0" layoutY="212.0" text="Average:">
+               <font>
+                  <Font name="Consolas Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <ImageView fitHeight="78.0" fitWidth="200.0" layoutX="274.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
