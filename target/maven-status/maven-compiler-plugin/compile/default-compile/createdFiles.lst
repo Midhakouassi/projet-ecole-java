@@ -1,7 +1,10 @@
-module-info.class
+project_ecole\projet\Examen.class
 project_ecole\projet\SecondaryController.class
+project_ecole\projet\ExamenService.class
 project_ecole\projet\EtudiantDao.class
 project_ecole\projet\App.class
+project_ecole\projet\Etudiant.class
+module-info.class
+project_ecole\projet\ExamenDao.class
 project_ecole\projet\PrimaryController.class
 project_ecole\projet\DbConnexion.class
-project_ecole\projet\Etudiant.class

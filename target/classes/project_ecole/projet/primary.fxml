@@ -7,7 +7,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -15,7 +17,7 @@
 
 <AnchorPane prefHeight="469.0" prefWidth="627.0" style="-fx-background-color: #00BFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project_ecole.projet.PrimaryController">
    <children>
-      <Label layoutX="130.0" layoutY="65.0" text="International Result Exam">
+      <Label layoutX="130.0" layoutY="79.0" text="International Result Exam">
          <font>
             <Font name="Copperplate Gothic Bold" size="24.0" />
          </font>
@@ -36,7 +38,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Pane fx:id="resultPane" layoutX="161.0" layoutY="105.0" managed="false" prefHeight="200.0" prefWidth="306.0" visible="false">
+      <Pane fx:id="resultPane" layoutX="161.0" layoutY="114.0" prefHeight="290.0" prefWidth="306.0" visible="false">
          <children>
             <Pane layoutX="92.0" layoutY="14.0" prefHeight="122.0" prefWidth="149.0">
                <children>
@@ -52,21 +54,39 @@
                   </ImageView>
                </children>
             </Pane>
-            <Label fx:id="resultText" layoutX="139.0" layoutY="154.0">
-               <font>
-                  <Font name="Consolas" size="14.0" />
-               </font>
-            </Label>
+            <HBox alignment="CENTER" layoutY="123.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="42.0" prefWidth="306.0">
+               <children>
+                  <Label fx:id="resultText">
+                     <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="155.0" prefHeight="35.0" prefWidth="306.0">
+               <children>
+                  <Button fx:id="detailsBtn" mnemonicParsing="false" onAction="#revealExamDetails" style="-fx-background-color: #00008B;" text="Details" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <ImageView fx:id="confetti" fitHeight="87.0" fitWidth="100.0" layoutX="123.0" layoutY="190.0" managed="false" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../img/confetti.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <ImageView fitHeight="110.0" fitWidth="139.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../Downloads/pngtree-graduation-hat-and-diploma-png-image_12292652-removebg-preview.png" />
+            <Image url="@../../img/kepi.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="110.0" fitWidth="116.0" layoutX="542.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../Downloads/images__1_-removebg-preview.png" />
+            <Image url="@../../img/diplome.png" />
          </image>
       </ImageView>
       <Pane fx:id="queryPane" layoutX="130.0" layoutY="127.0">
@@ -91,5 +111,49 @@
             </Button>
          </children>
       </Pane>
+      <Pane fx:id="detailsPane" layoutX="132.0" layoutY="105.0" prefHeight="234.0" prefWidth="361.0" visible="false">
+         <children>
+            <VBox layoutX="11.0" layoutY="14.0" prefHeight="87.0" prefWidth="345.0">
+               <children>
+                  <Label fx:id="fullnameText" text="Fullname:">
+                     <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bornYearText" text="Born year:">
+                     <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="schoolText" text="School:">
+                     <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idText" text="Id">
+                     <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label style="-fx-underline: true;" text="Details">
+                     <font>
+                        <Font name="Consolas Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Label fx:id="totalNotesText" layoutX="14.0" layoutY="198.0" text="Notes Summary:">
+               <font>
+                  <Font name="Consolas Bold" size="14.0" />
+               </font>
+            </Label>
+            <VBox fx:id="tableExamenBox" layoutX="10.0" layoutY="99.0" prefHeight="99.0" prefWidth="337.0" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="78.0" fitWidth="200.0" layoutX="274.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/school.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
