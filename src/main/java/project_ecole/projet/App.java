@@ -19,7 +19,12 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 640, 480);
         stage.setScene(scene);
+        stage.setMinWidth(658);
+        stage.setMinHeight(469);
+        stage.setMaxWidth(658);
+        stage.setMaxHeight(469);
         stage.show();
+        
     }
 
     static void setRoot(String fxml) throws IOException {

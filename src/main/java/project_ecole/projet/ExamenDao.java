@@ -10,67 +10,37 @@ import java.util.List;
 public class ExamenDao { 
 
     public List<String> getAllExamen() throws SQLException {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        Examen exams = new Examen();// Objet contenant la liste des examens
-        List<String> allExamen = new ArrayList();
+        Connection connection = null; // Déclaration de la connexion
+        PreparedStatement statement = null; // Déclaration de la requête préparée
+        List<String> allExamen = new ArrayList<>(); // Liste pour stocker les noms d'examens
 
         try {
-            connection = DbConnexion.getDBConnexion(); // Connexion à la base de données
-            connection.setAutoCommit(false); // Désactiver l'auto-commit pour une transaction manuelle
+            connection = DbConnexion.getDBConnexion(); // Ouvrir une connexion à la base de données
+            connection.setAutoCommit(false); // Désactiver l'auto-commit pour gérer la transaction manuellement
 
-            String query = "SELECT nom_exam FROM Examen"; // Requête SQL pour récupérer les noms d'examens
+            String query = "SELECT nom_exam FROM Examen"; // Requête pour obtenir les noms d'examens
             statement = connection.prepareStatement(query); // Préparer la requête
-            ResultSet resultSet = statement.executeQuery(); // Exécuter la requête
+            ResultSet resultSet = statement.executeQuery(); // Exécuter la requête et obtenir les résultats
 
-            // Récupérer les résultats et les ajouter à la liste des examens
+            // Parcourir les résultats et les ajouter à la liste
             while (resultSet.next()) {
-            	allExamen.add(resultSet.getString(1));
+                allExamen.add(resultSet.getString(1)); // Ajouter chaque nom d'examen à la liste
             }
 
         } finally {
-            // Fermer la déclaration SQL
+            // Fermer la déclaration SQL pour libérer les ressources
             if (statement != null) {
                 statement.close();
             }
-            // Fermer la connexion
+            // Fermer la connexion à la base de données
             if (connection != null) {
                 connection.close();
             }
         }
 
-        return allExamen; // Retourner l'objet Exams avec les résultats
+        return allExamen; // Retourner la liste des noms d'examens
     }
 
-    public int retrieveExamNum() throws SQLException {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        int examCount = 0; // Nombre d'examens récupérés
-
-        try {
-            connection = DbConnexion.getDBConnexion(); // Connexion à la base de données
-            connection.setAutoCommit(false); // Désactiver l'auto-commit
-
-            String query = "SELECT COUNT(*) FROM Examen"; // Requête SQL pour compter les examens
-            statement = connection.prepareStatement(query); // Préparer la requête
-            ResultSet resultSet = statement.executeQuery(); // Exécuter la requête
-
-            // Récupérer le nombre d'examens
-            if (resultSet.next()) {
-                examCount = resultSet.getInt(1); // Récupérer le résultat du COUNT
-            }
-
-        } finally {
-            // Fermer la déclaration SQL
-            if (statement != null) {
-                statement.close();
-            }
-            // Fermer la connexion
-            if (connection != null) {
-                connection.close();
-            }
-        }
-
-        return examCount; // Retourner le nombre d'examens
-    }
+    
+     
 }

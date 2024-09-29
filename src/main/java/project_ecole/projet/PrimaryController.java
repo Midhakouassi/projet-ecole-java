@@ -66,7 +66,7 @@ public Label idText;
 	public ImageView confetti;
 	
     @FXML
-    private void switchToSecondary() throws SQLException {
+    protected void switchToSecondary() throws SQLException {
     	 String etudiantId = idInput.getText().trim();
     	 etudiant = etudiantDao.getEtudiant(etudiantId);
         
@@ -109,7 +109,7 @@ public Label idText;
     
     
     @FXML 
-    private void revealExamDetails() throws SQLException{
+    protected void revealExamDetails() throws SQLException{
 		resultPane.setManaged(false);
 		resultPane.setVisible(false);
 		 
