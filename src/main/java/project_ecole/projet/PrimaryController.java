@@ -50,8 +50,23 @@ public class PrimaryController {
     			totalNotes += Integer.parseInt(parts[1]);
     		 }
     		 
+    		 queryPane.setManaged(false);
+			 queryPane.setVisible(false);
+			 
+			 resultPane.setManaged(true);
+			 resultPane.setVisible(true);
+    		 
     		 if(totalNotes >= (NB_MATIERE * 5)) {
+    			 successIcon.setManaged(true);
+    			 successIcon.setVisible(true);
     			 
+    			 resultText.setText("Félicitation "+etudiant.getNom()+" "+etudiant.getPrenoms()+" avec "+totalNotes);
+    		 }else {
+    			 failIcon.setManaged(true);
+    			 failIcon.setVisible(true);
+    			 
+    			 resultText.setText("Echec "+etudiant.getNom()+" "+etudiant.getPrenoms()+" avec "+totalNotes);
+
     		 }
     	 }else {
     		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
